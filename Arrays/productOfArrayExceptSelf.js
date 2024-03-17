@@ -42,6 +42,10 @@ test.forEach((value) => {
   console.log(result);
 });
 
+
+// The prefix value of the first element in the array should just be 1, since there are no values to the left of it.
+// The suffix value of the last element in the array should just be 1, since there are no values to the right of it.
+
 // i = 0
 // first pass = result i is index 0 [result[i]]
 // prefix is 1/
