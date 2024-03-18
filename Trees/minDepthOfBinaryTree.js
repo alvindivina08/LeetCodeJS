@@ -1,11 +1,6 @@
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
+import MakeTree from './makeTree.js';
+const tree = new MakeTree();
+
 /**
  * @param {TreeNode} root
  * @return {number}
@@ -27,25 +22,6 @@ var minDepth = function(root) {
     
 };
 
-function makeTree(arr) {
-    if (!arr) return null; // empty tree
-    const values = arr[Symbol.iterator]();
-    const root = new TreeNode(values.next().value);
-    const queue = new Set().add(root);
-    for (const node of queue) {
-        for (const side of ["left", "right"]) {
-             const value = values.next().value;
-             if (value != null) queue.add(node[side] = new TreeNode(value));
-        }
-    }
-    return root;
-}
-
-function TreeNode(val, left, right) {
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
-}
 const test = [
     [2,null,3,null,4,null,5,null,6],
     [3,9,20,null,null,15,7],
@@ -53,7 +29,7 @@ const test = [
 ]
 
 test.forEach((value) => {
-    const root = new makeTree(value)
+    const root = tree.makeTree(value)
     console.log(root)
     const result = minDepth(root);
     console.log(result)
