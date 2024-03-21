@@ -1,6 +1,6 @@
 import MakeList from "./MakeLinkedList.js";
-
 const List = new MakeList
+
 /**
  @param {ListNode} l1
  @param {ListNode} l2
