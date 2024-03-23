@@ -1,18 +1,14 @@
 var groupAnagrams = function (strs) {
-    const groupedAnagrams = {};
-
+    const group = {}
     for (const str of strs) {
-        const sortedStr = str.split('').sort().join('');
-        console.log(sortedStr);
-
-        if (groupedAnagrams[sortedStr]) {
-            groupedAnagrams[sortedStr].push(str);
+        const key = str.split('').sort().join('');
+        if (group[key] === undefined){
+            group[key] = [str]
         } else {
-            groupedAnagrams[sortedStr] = [str];
+            group[key].push(str)
         }
     }
-
-    return Object.values(groupedAnagrams);
+    return Object.values(group);
 };
 
 // Example usage:

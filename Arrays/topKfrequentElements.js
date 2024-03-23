@@ -7,19 +7,10 @@ var topKFrequent = function(nums, k) {
         freqMap.set(num, (freqMap.get(num) || 0) + 1);
     }
     
-    console.log(freqMap);
     for(let [num, freq] of freqMap) {
-        console.log('---')
-        console.log(`num is ${num} and freq is ${freq}`)
         bucket[freq] = (bucket[freq] || new Set()).add(num);
-        console.log(bucket[freq]);
-        console.log(bucket)
     }
-    console.log('\n')
-    console.log(bucket)
     for(let i = bucket.length-1; i >= 0; i--) {
-        console.log('\n')
-        console.log(bucket[i])
         if(bucket[i]) result.push(...bucket[i]);
         if(result.length === k) break;
     }
